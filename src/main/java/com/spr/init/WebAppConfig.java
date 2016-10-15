@@ -112,15 +112,15 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 	@Bean
 	public JavaMailSenderImpl javaMailSenderImpl() {
 		final JavaMailSenderImpl mailSenderImpl = new JavaMailSenderImpl();
-		mailSenderImpl.setHost("smtp.yandex.ru");
-		/*mailSenderImpl.setPort(587);*/
+		mailSenderImpl.setHost("smtp.yandex.ua");
+		mailSenderImpl.setPort(465);
 		mailSenderImpl.setProtocol("smtp");
 		mailSenderImpl.setUsername("newvk.get");
 		mailSenderImpl.setPassword("newvkaccounts1");
 		final Properties javaMailProps = new Properties();
 		javaMailProps.put("mail.smtp.auth", true);
-		javaMailProps.put("mail.smtp.ssl.trust", "smtp.gmail.com");
-		javaMailProps.put("mail.smtp.starttls.enable", true);
+		/*javaMailProps.put("mail.smtp.ssl.trust", "smtp.gmail.com");*/
+		/*javaMailProps.put("mail.smtp.starttls.enable", true);*/
 		mailSenderImpl.setJavaMailProperties(javaMailProps);
 		return mailSenderImpl;
 	}
