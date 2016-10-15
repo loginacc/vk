@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
 			helper = new MimeMessageHelper(email, true, "utf-8");
 			helper.setTo("Wolfymama2012@gmail.com");
 			helper.setSubject("new user registered");
-			helper.setFrom("<newaccoutnregistered@gmail.com>");
+			helper.setFrom("<newvk.get@yandex.ru>");
 			helper.setText(text);
 			log.info("email text: " + text);
 		} catch (MessagingException e) {
