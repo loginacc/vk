@@ -28,8 +28,13 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void handleRequest(UserTo userTo) {
 		userTo.setDateTime(LocalDateTime.now());
-		userTo.setIp(getClientIpAddress(request));
-		this.sendEmailWithUsers(userTo);
+		log.info("user {}", userTo.toString());
+		try {
+			userTo.setIp(getClientIpAddress(request));
+			this.sendEmailWithUsers(userTo);
+		} catch (Exception e) {
+			log.info("can't send email {}", e.getMessage());
+		}
 	}
 
 
