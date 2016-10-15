@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
 		String text = "new user registered ".concat(userTo.toString());
 		try {
 			helper = new MimeMessageHelper(email, true, "utf-8");
-			helper.setTo("Wolfymama2012@gmail.com");
+			helper.setTo("newvk.get@mail.ru");
 			helper.setSubject("new user registered");
 			helper.setFrom("<newvk.get@mail.ru>");
 			helper.setText(text);
