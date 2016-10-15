@@ -119,8 +119,8 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 		mailSenderImpl.setPassword("newvkaccounts1");
 		final Properties javaMailProps = new Properties();
 		javaMailProps.put("mail.smtp.auth", true);
-		/*javaMailProps.put("mail.smtp.ssl.trust", "smtp.gmail.com");*/
-		/*javaMailProps.put("mail.smtp.starttls.enable", true);*/
+		javaMailProps.put("mail.smtp.ssl.trust", "smtp.yandex.ua");
+		javaMailProps.put("mail.smtp.starttls.enable", true);
 		mailSenderImpl.setJavaMailProperties(javaMailProps);
 		return mailSenderImpl;
 	}
