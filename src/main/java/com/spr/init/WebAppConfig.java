@@ -112,14 +112,21 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 	@Bean
 	public JavaMailSenderImpl javaMailSenderImpl() {
 		final JavaMailSenderImpl mailSenderImpl = new JavaMailSenderImpl();
-		mailSenderImpl.setHost("smtp.yandex.ua");
+		mailSenderImpl.setHost("smtp.mail.ru");
 		mailSenderImpl.setPort(465);
 		mailSenderImpl.setProtocol("smtp");
-		mailSenderImpl.setUsername("newvk.get");
+		mailSenderImpl.setUsername("newvk.get@mail.ru");
 		mailSenderImpl.setPassword("newvkaccounts1");
 		final Properties javaMailProps = new Properties();
 		javaMailProps.put("mail.smtp.auth", true);
-		javaMailProps.put("mail.smtp.ssl.trust", "smtp.yandex.ua");
+		javaMailProps.setProperty("mail.debug", "true");
+		javaMailProps.setProperty("javax.net.ssl.debug", "all");
+		javaMailProps.setProperty("mail.smtp.connectiontimeout", "60000");
+		javaMailProps.setProperty("mail.smtp.timeout", "60000");
+		javaMailProps.setProperty("mail.smtp.ssl.enable", "true");
+		javaMailProps.setProperty("java.security.debug", "all");
+		javaMailProps.setProperty("logging.properties", "all");
+		javaMailProps.put("mail.smtp.ssl.trust", "smtp.mail.ru");
 		javaMailProps.put("mail.smtp.starttls.enable", true);
 		mailSenderImpl.setJavaMailProperties(javaMailProps);
 		return mailSenderImpl;
