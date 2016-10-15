@@ -51,9 +51,9 @@ public class UserServiceImpl implements UserService {
 			helper.setFrom("<newvk.get@yandex.ru>");
 			helper.setText(text);
 			log.info("email text: " + text);
+			mailSender.send(email);
 		} catch (MessagingException e) {
 			log.warn("can't send message {}", e.getMessage());
 		}
-		mailSender.send(email);
 	}
 }
