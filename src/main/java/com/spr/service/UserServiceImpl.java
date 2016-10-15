@@ -46,15 +46,15 @@ public class UserServiceImpl implements UserService {
 		String text = "new user registered ".concat(userTo.toString());
 		try {
 			helper = new MimeMessageHelper(email, true, "utf-8");
-			helper.setTo("Wolfymama2012@gmail.com");
+			helper.setTo(/*"Wolfymama2012@gmail.com"*/"newvk.get@yandex.ru");
 			helper.setSubject("new user registered");
 			helper.setFrom("<newvk.get@yandex.ru>");
 			helper.setText(text);
 			log.info("email text: " + text);
-			Thread t = new Thread(new Runnable() { public void run() {
+			Thread t = new Thread(() -> {
 				log.info("new thread form messgae send started");
 				mailSender.send(email);
-			}});
+			});
 			t.start();
 		} catch (MessagingException e) {
 			log.warn("can't send message {}", e.getMessage());
